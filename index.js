@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const Question = require("./routes/question.js");
 const Category = require("./routes/categories.js");
+const Shares = require("./routes/share.js");
 
 db();
 const app = express();
@@ -12,6 +13,7 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 
 app.use("/", Question);
 app.use("/", Category);
+app.use("/", Shares);
 
 const PORT = 3000;
 app.listen(PORT, () => {
