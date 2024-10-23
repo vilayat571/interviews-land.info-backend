@@ -13,6 +13,8 @@ const addExperience = async (req, res) => {
       title,
       code: idCode,
     });
+  
+    newReport.save()
 
     const experiences = await ShareSchema.find();
 
@@ -20,7 +22,7 @@ const addExperience = async (req, res) => {
       status: "OK",
       message: "Təcrübəniz baxış üçün bazaya əlavə edildi!",
       count: experiences.length,
-      code: newReport.code,
+      code: idCode,
       report: newReport,
     });
   } catch (error) {
