@@ -49,7 +49,7 @@ const getSingleCategory = async (req, res) => {
   try {
     const { name } = req.params;
 
-    const category = await CategorySchema.findOne({ categoryName: name });
+    const category = await CategorySchema.findOne({ categoryname: name });
 
     return res.status(201).json({
       status: "OK",

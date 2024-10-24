@@ -21,6 +21,10 @@ const ShareSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  code: {
+    type: String,
+    required: false,
+  },
 });
 
 module.exports = mongoose.model("ShareSchema", ShareSchema);
