@@ -8,8 +8,9 @@ const GOOGLE_CLIENT_SECRET = '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';
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "/auth/google/callback"
+    callbackURL: "https://interviewsland-backend.onrender.com/auth/google/callback"
   },
+  
   (accessToken, refreshToken, profile, done) => {
     // You can save the user profile to your database here
     return done(null, profile); // For this example, we'll just return the profile
