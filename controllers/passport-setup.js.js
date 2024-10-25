@@ -8,7 +8,7 @@ const GOOGLE_CLIENT_SECRET = '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';
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/callback"
+    callbackURL: "/auth/google/callback"
   },
   (accessToken, refreshToken, profile, done) => {
     // You can save the user profile to your database here
