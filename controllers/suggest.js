@@ -1,4 +1,4 @@
-const SuggestSchema = require("../models/suggests.js");
+const SuggestSchema = require("../models/suggest.js");
 
 const addSuggest = async (req, res) => {
   try {
