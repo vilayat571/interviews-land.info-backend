@@ -64,8 +64,39 @@ const getSingleCategory = async (req, res) => {
   }
 };
 
+const editedCategory = async (req, res) => {
+  const { name } = req.params;
+
+  try {
+    if (name) {
+      const editeCategory = await CategorySchema.findOneAndUpdate(
+        { categoryname: name },
+        { $set: req.body }, // Fields to update
+        { new: true, runValidators: true } //
+      );
+
+      return res.status(200).json({
+        status: "OK",
+        message: "Kateqoriya yeniləndi!",
+        editeCategory,
+      });
+    } else {
+      return res.status(404).json({
+        status: "FAILED",
+        message: "Kateqoriya tapılmadı!",
+      });
+    }
+  } catch (error) {
+    return res.status(500).json({
+      status: "FAILED",
+      message: "Xəta baş verdi!",
+    });
+  }
+};
+
 module.exports = {
   createcategory,
   getCategories,
   getSingleCategory,
+  editedCategory
 };
