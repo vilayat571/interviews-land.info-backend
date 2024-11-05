@@ -29,7 +29,7 @@ app.use("/", Shares);
 app.use("/", Suggest);
 
 // Start the server
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Backend started to listen on port ${PORT}`);
 });

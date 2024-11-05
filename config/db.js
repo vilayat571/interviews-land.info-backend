@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
+require('dotenv').config(); // Load environment variables
 
-const url =
-  "mongodb+srv://vilayat571:V43D4kWJVToXugfo@cluster0.fi5ebfv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const DB_URL = process.env.DB_URL;
+
 db = () => {
   mongoose
-    .connect(url)
+    .connect( DB_URL)
     .then(() => console.log("DB connected"))
     .catch((err) => console.log(err.message));
 };
