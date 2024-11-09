@@ -9,10 +9,6 @@ const iqSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  number: {
-    type: Number,
-    required: true,
-  },
   answer: {
     type: String,
     required: false,

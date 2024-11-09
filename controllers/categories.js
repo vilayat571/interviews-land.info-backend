@@ -70,7 +70,7 @@ const editedCategory = async (req, res) => {
   try {
     if (name) {
       const editeCategory = await CategorySchema.findOneAndUpdate(
-        { categoryname: name },
+        { categoryname: name, contributors },
         { $set: req.body }, // Fields to update
         { new: true, runValidators: true } //
       );
