@@ -70,10 +70,17 @@ const editedCategory = async (req, res) => {
   try {
     if (name) {
       const editeCategory = await CategorySchema.findOneAndUpdate(
-        { categoryname: name, contributors },
-        { $set: req.body }, // Fields to update
-        { new: true, runValidators: true } //
+        { categoryname: name },
+        { $set: req.body }, // Dəyişdiriləcək sahələr
+        { new: true, runValidators: true }
       );
+
+      if (!editeCategory) {
+        return res.status(404).json({
+          status: "FAILED",
+          message: "Kateqoriya tapılmadı!",
+        });
+      }
 
       return res.status(200).json({
         status: "OK",
@@ -90,9 +97,11 @@ const editedCategory = async (req, res) => {
     return res.status(500).json({
       status: "FAILED",
       message: "Xəta baş verdi!",
+      error: error.message,
     });
   }
 };
+
 
 module.exports = {
   createcategory,
